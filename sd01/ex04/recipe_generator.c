@@ -4,13 +4,13 @@ struct Recipe *create_custom_recipe(void)
 {
     struct Ingredients *ing = get_current_ingredients();
     if (!ing)
-        return NULL;
+        return (NULL);
 
     struct TasteProfile *taste = get_user_taste_profile();
     if (!taste)
     {
         free_ingredients(ing);
-        return NULL;
+        return (NULL);
     }
 
     struct Recipe *recipe = NULL;
@@ -23,7 +23,7 @@ struct Recipe *create_custom_recipe(void)
         {
             free_taste_profile(taste);
             free_ingredients(ing);
-            return NULL;
+            return (NULL);
         }
 
         approved = get_user_approval(recipe);
@@ -37,5 +37,5 @@ struct Recipe *create_custom_recipe(void)
     free_taste_profile(taste);
     free_ingredients(ing);
 
-    return recipe;
+    return (recipe);
 }

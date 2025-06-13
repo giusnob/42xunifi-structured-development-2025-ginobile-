@@ -4,13 +4,13 @@ struct Playlist *create_playlist(void)
 {
     struct MoodSettings *mood = analyze_user_mood();
     if (!mood)
-        return NULL;
+        return (NULL);
 
     struct FilterSettings *filters = default_filters();
     if (!filters)
     {
         free_mood_settings(mood);
-        return NULL;
+        return (NULL);
     }
 
     int variations = get_mood_variations(mood);
@@ -22,7 +22,7 @@ struct Playlist *create_playlist(void)
         {
             free_filter_settings(filters);
             free_mood_settings(mood);
-            return NULL;
+            return (NULL);
         }
         i++;
     }
@@ -37,7 +37,7 @@ struct Playlist *create_playlist(void)
     {
         free_filter_settings(filters);
         free_mood_settings(mood);
-        return NULL;
+        return (NULL);
     }
 
     struct Playlist *playlist = combine_with_mood_playlist(song, mood);
@@ -46,7 +46,7 @@ struct Playlist *create_playlist(void)
         free_song_data(song);
         free_filter_settings(filters);
         free_mood_settings(mood);
-        return NULL;
+        return (NULL);
     }
 
     free_song_data(song);

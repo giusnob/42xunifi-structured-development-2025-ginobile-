@@ -4,20 +4,20 @@ struct WorkoutPlan *create_workout_schedule(char *username)
 {
     struct UserData *user = get_user_data(username);
     if (!user)
-        return NULL;
+        return (NULL);
 
     struct WorkoutPlan *plan = build_base_plan(user);
     if (!plan)
     {
         free_user_data(user);
-        return NULL;
+        return (NULL);
     }
 
     plan = refine_plan(plan, user);
     if (!plan)
     {
         free_user_data(user);
-        return NULL;
+        return (NULL);
     }
 
     int duration = determine_duration(plan);
@@ -25,7 +25,7 @@ struct WorkoutPlan *create_workout_schedule(char *username)
     {
         free_user_data(user);
         free_workout_plan(plan);
-        return NULL;
+        return (NULL);
     }
 
     for (int day = 1; day <= duration; day++)
