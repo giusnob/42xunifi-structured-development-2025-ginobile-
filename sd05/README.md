@@ -1,4 +1,4 @@
-# pj00 – Community Digital Library
+# sd05 – Community Digital Library
 
 Implementazione (work-in-progress) dell’esercizio sd04/ex00.
 
